@@ -1,4 +1,4 @@
   api_password: !secret pwd
   base_url: !secret baseurl
-  ssl_certificate: !secret sslcert
-  ssl_key: !secret sslkey
+#  ssl_certificate: !secret sslcert
+#  ssl_key: !secret sslkey
