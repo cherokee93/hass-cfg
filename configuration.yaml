@@ -5,6 +5,7 @@ history:
 sun:
 map:
 http: !include cfg/http.yaml
+google_assistant: !include cfg/assistant.yaml
 homeassistant:
   name: Casa Aloni
   unit_system: metric
@@ -43,15 +44,6 @@ mqtt:
   port: 10972
   username: !secret mqttusr
   password: !secret mqttpwd
-cloud:
-  google_actions:
-    filter:
-      include_domains:
-        - switch
-        - light
-        - script
-        - scene
-        - device_tracker
 #GATEWAY
 hue: !include cfg/gateway/hue.yaml
 xiaomi_aqara: !include cfg/gateway/xiaomi.yaml
@@ -86,7 +78,14 @@ zone: !include zone.yaml
 #  password: !secret netatmopwd
 #scene: !include_dir_merge_list scene
 #input_boolean: !include_dir_merge_named input_boolean
-#google_assistant: !include cfg/assistant.yaml
 #discovery:
 #logbook:
-
+#cloud:
+#  google_actions:
+#    filter:
+#      include_domains:
+#        - switch
+#        - light
+#        - script
+#        - scene
+#        - device_tracker
