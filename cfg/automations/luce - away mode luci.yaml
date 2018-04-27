@@ -1,0 +1,10 @@
+- id: due
+  alias: Away Mode Luci
+  trigger:
+    entity_id: group.aloni
+    from: home
+    platform: state
+    to: not_home
+  action:
+    service: light.turn_off
+    entity_id: group.all_lights

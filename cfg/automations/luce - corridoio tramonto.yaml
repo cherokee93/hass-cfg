@@ -1,0 +1,12 @@
+- id: uno
+  alias: Accendi corridoio al tramonto
+  trigger:
+    platform: sun
+    event: sunset
+  condition:
+    condition: state
+    entity_id: group.aloni
+    state: home
+  action:
+    service: scene.turn_on
+    entity_id: scene.welcomecorridoio

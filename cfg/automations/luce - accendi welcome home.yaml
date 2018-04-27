@@ -1,0 +1,14 @@
+- id: cinque
+  alias: Accendi quando torniamo a casa
+  trigger:
+    platform: state
+    entity_id: group.aloni
+    from: not_home
+    to: home
+  condition:
+    condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+    service: light.turn_on
+    entity_id: light.portone, light.corridoio

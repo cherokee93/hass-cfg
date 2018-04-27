@@ -1,0 +1,32 @@
+- id: venti4
+  alias: z800_restart
+  trigger:
+    platform: state
+    entity_id: input_select.pcoptions
+    to: Restart
+  action:
+  - service: shell_command.restartali
+- id: venti5
+  alias: z800_shutdown
+  trigger:
+    platform: state
+    entity_id: input_select.pcoptions
+    to: Shutdown
+  action:
+  - service: shell_command.shutdownali
+- id: venti6
+  alias: z800_sleep
+  trigger:
+    platform: state
+    entity_id: input_select.pcoptions
+    to: Sleep
+  action:
+  - service: shell_command.sleepali
+- id: venti7
+  alias: z800_hibernate
+  trigger:
+    platform: state
+    entity_id: input_select.pcoptions
+    to: Hibernate
+  action:
+  - service: shell_command.hibernateali

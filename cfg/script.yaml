@@ -76,7 +76,7 @@ buonanotte:
     - service: light.turn_off
       data:
         entity_id: light.corridoio,light.gateway_light_286c07891570,light.living_room,light.sala,light.stanza_nerding,light.stanza_nerding_muro
-        transition: 120
+        transition: 10
     # Spegni instant
     - service: light.turn_off
       data:

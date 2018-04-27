@@ -1,0 +1,24 @@
+- id: nove
+  alias: Spegni tutto on hold
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d00014d0c15
+      click_type: hold
+  action:
+  - service: light.turn_off
+    entity_id: group.all_lights
+  - service: switch.turn_off
+    entity_id: switch.plug_158d0001530646
+- id: noventa
+  alias: Toggle Corridoio
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d00014d0c15
+      click_type: single
+  action:
+  - service: light.toggle
+    entity_id: light.corridoio

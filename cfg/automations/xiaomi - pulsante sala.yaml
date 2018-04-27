@@ -1,0 +1,22 @@
+- id: diciotto
+  alias: Pulsante Mi Sala Single Sala
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d000128af3f
+      click_type: single
+  action:
+    service: light.toggle
+    entity_id: light.sala
+- id: diciannove
+  alias: Pulsante Mi Sala Double Corridoio
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d000128af3f
+      click_type: double
+  action:
+    service: light.toggle
+    entity_id: light.corridoio

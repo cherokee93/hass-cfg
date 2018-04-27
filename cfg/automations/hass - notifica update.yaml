@@ -1,0 +1,10 @@
+- id: dieci
+  alias: Notifica Update
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  action:
+    service: persistent_notification.create
+    data:
+      message: Update Available!
+      title: Home Assistant  {{ states.updater.updater.state }}  is now available.

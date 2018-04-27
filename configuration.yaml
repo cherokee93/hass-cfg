@@ -24,9 +24,9 @@ recorder:
       - weblink
       - updater
       - script
-      - sensor.netdata
     entities:
       - sun.sun
+      - sensor.fortnite_stats
       - camera.domodossola
       - sensor.disk_use_root
       - sensor.disk_use_mntusb_1
@@ -45,23 +45,23 @@ mqtt:
   username: !secret mqttusr
   password: !secret mqttpwd
 #GATEWAY
-hue: !include cfg/gateway/hue.yaml
-xiaomi_aqara: !include cfg/gateway/xiaomi.yaml
+hue: !include cfg/gateways/hue.yaml
+xiaomi_aqara: !include cfg/gateways/xiaomi.yaml
 #DNS 
 duckdns: !include cfg/dns/duckdns.yaml
 namecheapdns: !include cfg/dns/namecheap.yaml
 #INCLUDES
-automation: !include cfg/automations.yaml
+automation: !include_dir_merge_list cfg/automations
 camera: !include cfg/camera.yaml
 device_tracker: !include cfg/device_tracker.yaml
-group: !include cfg/groups.yaml
-input_number: !include cfg/input_number.yaml
+group: !include cfg/group.yaml
 input_select: !include cfg/input_select.yaml
 light: !include cfg/light.yaml
 logger: !include cfg/logger.yaml
 media_player: !include_dir_merge_list cfg/media_players
+scene: !include_dir_merge_list cfg/scenes
 panel_iframe: !include cfg/iframe.yaml
-script: !include cfg/scripts.yaml
+script: !include cfg/script.yaml
 sensor: !include_dir_merge_list cfg/sensors
 shell_command: !include cfg/shell_command.yaml
 switch: !include cfg/switch.yaml
@@ -71,6 +71,7 @@ zone: !include zone.yaml
 
 
 #DISABLED
+#input_number: !include cfg/input_number.yaml
 #netatmo:
 #  api_key: !secret netatmoapi
 # secret_key: !secret netatmosecd

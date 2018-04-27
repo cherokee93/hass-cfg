@@ -1,0 +1,35 @@
+- id: quindici
+  alias: Pulsante Mi Nerding Single Hue
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d000155d1d9
+      click_type: single
+  action:
+    service: light.toggle
+    entity_id: light.stanza_nerding
+- id: sedici
+  alias: Pulsante Mi Nerding Double Yee
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d000155d1d9
+      click_type: double
+  action:
+    service: light.toggle
+    entity_id: light.stanza_nerding_muro
+- id: diciassette
+  alias: Pulsante Mi Nerding Hold Spegni Tutto
+  trigger:
+  - event_data:
+      click_type: hold
+      entity_id: binary_sensor.switch_158d000155d1d9
+    event_type: click
+    platform: event
+  action:
+  - data:
+      entity_id: light.stanza_nerding, light.stanza_nerding_muro
+    entity_id: light.stanza_nerding, light.stanza_nerding_muro
+    service: light.turn_off

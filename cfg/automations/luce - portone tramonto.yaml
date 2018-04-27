@@ -1,0 +1,12 @@
+- id: tre
+  alias: Accendi Portone al tramonto
+  trigger:
+    platform: sun
+    event: sunset
+  condition:
+    condition: state
+    entity_id: group.aloni
+    state: home
+  action:
+    service: light.turn_on
+    entity_id: light.portone

@@ -1,0 +1,10 @@
+name: welcomecorridoio
+entities:
+  light.corridoio:
+    state: on
+    brightness: 255
+    color_temp: 410
+  light.portone:
+    state: on
+    brightness: 255
+    color_temp: 410
