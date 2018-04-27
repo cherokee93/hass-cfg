@@ -1,0 +1,17 @@
+  default: error
+  logs:
+    homeassistant.components: info
+    homeassistant.components.rfxtrx: debug
+    homeassistant.components.camera: critical
+    homeassistant.components.http: warning
+    homeassistant.components.device_tracker.nmap_tracker: critical
+    homeassistant.components.sensor.command_line: critical
+    homeassistant.components.aiohttp.server: critical
+    homeassistant.components.binary_sensor: critical
+    homeassistant.components.discovery: critical
+    homeassistant.components.device_tracker.asuswrt: critical
+    homeassistant.components.automation: critical
+    homeassistant.components.http.ban: warning
+    homeassistant.components.light.yeelight: critical
+    homeassistant.components.sensor.wunderground: critical
+    homeassistant.core: critical

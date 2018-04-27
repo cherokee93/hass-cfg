@@ -1,0 +1,10 @@
+- platform: wake_on_lan
+  mac_address: !secret deskpcmac
+  host: 192.168.1.99
+  name: DeskPC
+  turn_off:
+    service: shell_command.sleepali
+#- platform: transmission
+#  host: 192.168.1.250
+#  username: !secret usrgen
+#  password: !secret fitgen

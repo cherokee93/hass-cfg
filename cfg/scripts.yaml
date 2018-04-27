@@ -1,0 +1,65 @@
+radio538:
+    alias: Ascolta Radio su Chromecast
+    sequence:
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.cameretta_speaker
+          volume_level: '0.35'
+      -  service: media_player.volume_set
+         data:
+           entity_id: media_player.sala
+           volume_level: '0.30'
+      -  service: media_player.play_media
+         data_template:
+           entity_id: >
+            {% if is_state("input_select.chromecast_radio", "Sala") %} media_player.sala
+            {% elif is_state("input_select.chromecast_radio", "Corridoio") %} media_player.cameretta_speaker
+            {% elif is_state("input_select.chromecast_radio", "Ovunque") %} media_player.home_group
+            {% endif %}
+           media_content_id: >
+            {% if is_state("input_select.radio_station", "Deejay") %} http://radiodeejay-lh.akamaihd.net/i/RadioDeejay_Live_1@189857/index_96_a-b.m3u8?sd=10&rebase=on
+            {% elif is_state("input_select.radio_station", "Q-Music") %} http://icecast-qmusic.cdp.triple-it.nl/Qmusic_nl_live_96.mp3
+            {% elif is_state("input_select.radio_station", "3FM") %} http://icecast.omroep.nl/3fm-bb-mp3
+            {% elif is_state("input_select.radio_station", "100% NL") %} http://stream.100p.nl/100pctnl.mp3
+            {% elif is_state("input_select.radio_station", "Veronica") %} http://8543.live.streamtheworld.com/VERONICACMP3
+            {% elif is_state("input_select.radio_station", "Sky Radio") %} http://8623.live.streamtheworld.com:80/SKYRADIOAAC_SC
+            {% elif is_state("input_select.radio_station", "Arrow Classic Rock") %} http://91.221.151.155/listen.mp3
+            {% elif is_state("input_select.radio_station", "Classic FM") %} http://19143.live.streamtheworld.com/CLASSICFM_SC
+            {% elif is_state("input_select.radio_station", "BNR Nieuwsradio") %} http://icecast-bnr.cdp.triple-it.nl/bnr_mp3_96_03
+            {% elif is_state("input_select.radio_station", "SLAM! Hardstyle") %} http://vip-icecast.538.lw.triple-it.nl/WEB17_MP3
+            {% elif is_state("input_select.radio_station", "Sleep Radio") %} http://37.59.28.208:8722/stream
+            {% elif is_state("input_select.radio_station", "Ambient Sleeping Pill") %} http://perseus.shoutca.st:8447/h
+            {% elif is_state("input_select.radio_station", "Radio Art - Sleep") %} http://live.radioart.com/fSleep.mp3
+            {% elif is_state("input_select.radio_station", "Ambi Nature Radio") %} http://94.23.252.14:8067/stream
+            {% elif is_state("input_select.radio_station", "Calm Radio - Sleep") %} http://streams.calmradio.com/api/39/128/stream
+            {% elif is_state("input_select.radio_station", "Dinamo.FM Sleep") %} http://channels.dinamo.fm/sleep-aac
+            {% endif %}
+           media_content_type: 'audio/mp4' 
+ha_restart:
+  alias: Riavvia Homeassistant
+  sequence:
+  - service: homeassistant.restart
+speedy:
+  alias: Aggiorna Speedtest
+  sequence:
+  - service: sensor.update_speedtest
+testaudio:
+  alias: Temperatura test
+  sequence:
+  - service: tts.google_say
+    entity_id: media_player.cameretta_speaker
+    data_template:
+      message: La temperatura in cameretta, è di {{ states.sensor.temperature.state }} . 
+testspeed:
+  alias: Speed Test HomeM
+  sequence:
+  - service: tts.google_say
+    entity_id: media_player.cameretta_speaker
+    data_template:
+      message: Ok. Dammi trenta secondi che aggiorno lo speedtest!
+  - service: sensor.update_speedtest
+  - delay: '00:00:35'
+  - service: tts.google_say
+    entity_id: media_player.cameretta_speaker
+    data_template:
+      message: Ho fatto uno speedtest. Scarichi a {{ states.sensor.speedtest_download.state  | round() }}, aploadi a {{ states.sensor.speedtest_upload.state  | round() }} e pinghi {{ states.sensor.speedtest_ping.state  | round() }} . Eolone merdone!

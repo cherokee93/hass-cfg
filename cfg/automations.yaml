@@ -1,0 +1,272 @@
+- id: uno
+  alias: Accendi corridoio al tramonto
+  trigger:
+    platform: sun
+    event: sunset
+  condition:
+    condition: state
+    entity_id: group.aloni
+    state: home
+  action:
+    service: light.turn_on
+    entity_id: light.corridoio
+- id: due
+  alias: Away Mode Luci
+  trigger:
+    entity_id: group.aloni
+    from: home
+    platform: state
+    to: not_home
+  action:
+    service: light.turn_off
+    entity_id: group.all_lights
+- id: tre
+  alias: Accendi Portone al tramonto
+  trigger:
+    platform: sun
+    event: sunset
+  condition:
+    condition: state
+    entity_id: group.aloni
+    state: home
+  action:
+    service: light.turn_on
+    entity_id: light.portone
+- id: quattro
+  alias: Spegni fuori 1AM
+  trigger:
+    platform: time
+    at: 01:00:00
+  action:
+    service: light.turn_off
+    entity_id: light.portone
+- id: cinque
+  alias: Accendi quando torniamo a casa
+  trigger:
+    platform: state
+    entity_id: group.aloni
+    from: not_home
+    to: home
+  condition:
+    condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+    service: light.turn_on
+    entity_id: light.portone, light.corridoio
+- id: sei
+  alias: Accendi luce stanza con pc
+  initial_state: 'off'
+  trigger:
+  - entity_id: switch.deskpc
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+  - entity_id: light.stanza_nerding
+    service: light.turn_on
+- id: dieci
+  alias: Notifica Update
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  action:
+    service: persistent_notification.create
+    data:
+      message: Update Available!
+      title: Home Assistant  {{ states.updater.updater.state }}  is now available.
+- id: venti4
+  alias: z800_restart
+  trigger:
+    platform: state
+    entity_id: input_select.pcoptions
+    to: Restart
+  action:
+  - service: shell_command.restartali
+- id: venti5
+  alias: z800_shutdown
+  trigger:
+    platform: state
+    entity_id: input_select.pcoptions
+    to: Shutdown
+  action:
+  - service: shell_command.shutdownali
+- id: venti6
+  alias: z800_sleep
+  trigger:
+    platform: state
+    entity_id: input_select.pcoptions
+    to: Sleep
+  action:
+  - service: shell_command.sleepali
+- id: venti7
+  alias: z800_hibernate
+  trigger:
+    platform: state
+    entity_id: input_select.pcoptions
+    to: Hibernate
+  action:
+  - service: shell_command.hibernateali
+- id: nove
+  alias: Spegni tutto on hold
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d00014d0c15
+      click_type: hold
+  action:
+  - service: light.turn_off
+    entity_id: group.all_lights
+  - service: switch.turn_off
+    entity_id: switch.plug_158d0001530646
+- id: quindici
+  alias: Pulsante Mi Nerding Single Hue
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d000155d1d9
+      click_type: single
+  action:
+    service: light.toggle
+    entity_id: light.stanza_nerding
+- id: sedici
+  alias: Pulsante Mi Nerding Double Yee
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d000155d1d9
+      click_type: double
+  action:
+    service: light.toggle
+    entity_id: light.stanza_nerding_muro
+- id: diciassette
+  alias: Pulsante Mi Nerding Hold Spegni Tutto
+  trigger:
+  - event_data:
+      click_type: hold
+      entity_id: binary_sensor.switch_158d000155d1d9
+    event_type: click
+    platform: event
+  action:
+  - data:
+      entity_id: light.stanza_nerding, light.stanza_nerding_muro
+    entity_id: light.stanza_nerding, light.stanza_nerding_muro
+    service: light.turn_off
+- id: diciotto
+  alias: Pulsante Mi Sala Single Sala
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d000128af3f
+      click_type: single
+  action:
+    service: light.toggle
+    entity_id: light.sala
+- id: diciannove
+  alias: Pulsante Mi Sala Double Corridoio
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d000128af3f
+      click_type: double
+  action:
+    service: light.toggle
+    entity_id: light.corridoio
+- id: noventa
+  alias: Toggle Corridoio
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d00014d0c15
+      click_type: single
+  action:
+  - service: light.toggle
+    entity_id: light.corridoio
+- id: noventuno
+  alias: Tema night mode
+  trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: sun.sun
+      to: above_horizon
+    - platform: state
+      entity_id: sun.sun
+      to: below_horizon
+  action:
+    - service_template: frontend.set_theme
+      data_template:
+        name: >
+          {% if states.sun.sun.state == "above_horizon" %}
+            material_dark_green
+          {% else %}
+            dark_orange
+          {% endif %}
+          
+- id: noventaidos
+  alias: Auto Stanza Nerding 1
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d000154a59b
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: 'sun.sun'
+    state: 'below_horizon'
+  - condition: state
+    entity_id: 'switch.deskpc'
+    state: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: light.stanza_nerding
+- id: noventaitres
+  alias: Auto Stanza Nerding 2
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d000154a59b
+    to: 'off'
+    for:
+      minutes: 10
+  action:
+    service: homeassistant.turn_off
+    entity_id: light.stanza_nerding
+- id: noventailel
+  alias: Low battery notification
+  trigger:
+  - platform: state
+    entity_id: sensor.low_batteries
+  condition:
+  - condition: template
+    value_template: '{% if states.sensor.low_batteries.state %}true{% else %}false{%
+      endif %}'
+  action:
+  - service: notify.pushbullet
+    data_template:
+      message: 'Empty batteries: {{ states.sensor.low_batteries.state }}'
+  - service: persistent_notification.create
+    data:
+      message: 'Empty batteries: {{ states.sensor.low_batteries.state }}'
+- id: noventailel
+  alias: 'Set Radio Volume'
+  trigger:
+    platform: state
+    entity_id: input_slider.volume_radio
+  action:
+    service: media_player.volume_set
+    data_template:
+      entity_id: >
+        {% if is_state("input_select.chromecast_radio", "Sala") %} media_player.sala
+        {% elif is_state("input_select.chromecast_radio", "Corridoio") %} media_player.cameretta_speaker
+        {% elif is_state("input_select.chromecast_radio", "Ovunque") %} media_player.home_group
+        {% endif %}
+      volume_level: '{{  states.input_slider.volume_radio.state  }}' 

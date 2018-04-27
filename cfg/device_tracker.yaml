@@ -1,0 +1,10 @@
+- platform: mqtt_json
+  devices:
+    lenovop2_lenovop2: zanzito/lenovop2/location
+- platform: asuswrt
+  host: 192.168.1.1
+  protocol: telnet
+  mode: router
+  username: !secret routerusr
+  password: !secret routerpwd
+  track_new_devices: false

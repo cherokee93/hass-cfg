@@ -1,0 +1,21 @@
+- platform: mqtt
+  state_topic: "zanzito/lenovop2/device_info"
+  name: "Battery Charging"
+  value_template: '{{ value_json.battery_charging }}'
+- platform: mqtt
+  state_topic: "zanzito/lenovop2/device_info"
+  name: "Screen On"
+  value_template: '{{ value_json.screen_on }}'
+- platform: mqtt
+  state_topic: "zanzito/lenovop2/device_info"
+  name: "Wi-Fi Name"
+  value_template: '{{ value_json.current_wifi }}'
+- platform: mqtt
+  state_topic: "zanzito/shared_locations/lenovop2"
+  name: "Gps Accuracy"
+  value_template: '{{ value_json.gps_accuracy }}'
+- platform: mqtt
+  state_topic: "zanzito/shared_locations/lenovop2"
+  name: "Battery"
+  unit_of_measurement: "%"
+  value_template: '{{ value_json.battery_level }}'

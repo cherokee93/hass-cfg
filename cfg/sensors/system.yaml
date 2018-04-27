@@ -1,0 +1,7 @@
+- platform: systemmonitor
+  resources:
+  - type: disk_use_percent
+    arg: /root
+  - type: last_boot
+#  - type: disk_use_percent
+#    arg: /mnt/20B80FE2B80FB4F6

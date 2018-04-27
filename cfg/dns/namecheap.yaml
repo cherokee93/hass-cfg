@@ -1,0 +1,3 @@
+host: '@'
+domain: !secret namecheapsito
+password: !secret namecheaptoken

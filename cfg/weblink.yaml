@@ -1,0 +1,7 @@
+entities:
+- name: PiHole
+  url: !secret piholeip
+  icon: mdi:close-network
+- name: Pannello Asus
+  url: !secret routerpanel
+  icon: mdi:router-wireless

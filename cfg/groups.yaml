@@ -1,0 +1,296 @@
+default_view:
+  view: true
+  icon: mdi:home-variant
+  entities:
+  - group.luci
+  - group.internet
+  - group.sala_nerding
+  - device_tracker.38e60a737135
+  - device_tracker.lenovop2_lenovop2
+  - climate.termostato
+  - sensor.bitcoin_balance
+  - sensor.bitcoin
+mediapl:
+  name: Media
+  icon: mdi:play-network
+  view: true
+  entities:
+  - group.radiocc
+  - media_player.sala
+  - media_player.bedroom_tv
+  - media_player.samsung_tv_remote
+  - media_player.cameretta_speaker
+  - media_player.living_room_tv_2
+  - media_player.tv_sala
+  - media_player.fire_stick
+radiocc:
+  name: Radio
+  view: no
+  entities:
+  - input_select.radio_station
+  - input_select.chromecast_radio
+  - script.radio538
+  - input_number.volume_radio
+sala_nerding:
+  name: Cameretta
+  control: hidden
+  view: false
+  entities:
+  - switch.deskpc
+  - input_select.pcoptions
+  - light.stanza_nerding
+  - light.yeelight_rgb_286c07aeaf55
+gaming:
+  name: Gaming
+  control: hidden
+  icon: mdi:gamepad
+  view: true
+  entities:
+  - group.twitch
+  - group.steam
+  - group.fn_lifetime
+  - group.fn_solo
+  - group.fn_duo
+  - group.fn_squad
+steam:
+  name: Steam
+  control: hidden
+  view: false
+  entities:
+  - sensor.steam_76561198050332560
+  - sensor.steam_76561198193915434
+  - sensor.steam_76561198018926111
+  - sensor.steam_76561198245303716
+  - sensor.steam_76561198034899072
+twitch:
+  name: Twitch
+  control: hidden
+  view: false
+  entities:
+  - sensor.dakotaz
+  - sensor.ninja
+  - sensor.Ialexskate
+  - sensor.themanual
+  - sensor.bombermacu
+aloni:
+  name: Aloni
+  control: hidden
+  view: false
+  entities:
+  - device_tracker.lenovop2_lenovop2
+  - device_tracker.38e60a737135
+dispsensori:
+  name: Dispositivi & Sensori
+  icon: mdi:laptop-mac
+  view: true
+  entities:
+  - group.xiaomis
+  - group.dietpi
+  - group.torrent
+  - group.pihole
+  - group.devices
+  - group.lenovop2
+  - camera.ali
+  - group.meteo
+  - group.ariacielo
+  - group.pioggia
+  - sensor.temperature_158d0001573a29
+  - sensor.humidity_158d0001573a29
+  - sensor.illumination_286c07891570
+internet:
+  name: Internet
+  view: false
+  entities:
+  - sensor.external_ip
+  - sensor.speedtest_download
+  - sensor.speedtest_upload
+  - sensor.speedtest_ping
+  - sensor.wan_traffic_in_mean
+  - sensor.wan_traffic_out_mean
+script:
+  name: Script
+  control: hidden
+  view: false
+  entities:
+  - script.upgrade
+  - script.speedy
+  - script.ha_restart
+meteo:
+  name: Meteo
+  view: false
+  entities:
+  - sensor.pws_feelslike_c
+  - sensor.pws_temp_c
+  - sensor.pws_temp_high_1d_c
+  - sensor.pws_temp_low_1d_c
+  - sensor.pws_weather
+  - sensor.pws_alerts
+ariacielo:
+  name: Aria & Cielo
+  view: false
+  entities:
+  - sensor.pws_wind_dir
+  - sensor.pws_wind_kph
+  - sensor.pws_visibility_km
+  - sensor.moon
+  - sun.sun
+  - sensor.pws_pressure_mb
+pioggia:
+  name: Pioggia
+  view: false
+  entities:
+  - sensor.pws_relative_humidity
+  - sensor.pws_precip_today_metric
+  - sensor.pws_precip_1d
+weblinks:
+  name: Links
+  view: false
+  entities:
+  - weblink.webmin
+  - weblink.pihole
+  - weblink.pannello_asus
+luci:
+  name: Luci
+  view: false
+  entities:
+  - light.portone
+  - light.stanza_nerding
+  - light.sala
+  - light.corridoio
+  - light.camera
+  - light.stanza_nerding_muro
+  - light.gateway_light_286c07891570
+xiaomis:
+  name: Sensori Mi
+  view: false
+  entities:
+  - binary_sensor.switch_158d00014d0c15
+  - binary_sensor.switch_158d000155d1d9
+  - binary_sensor.switch_158d000128af3f
+  - binary_sensor.motion_sensor_158d000154a59b
+  - sensor.temperature_158d0001573a29
+  - sensor.humidity_158d0001573a29
+  - sensor.illumination_286c07891570
+camere:
+  name: Webcam
+  icon: mdi:video
+  view: true
+  entities:
+  - camera.officina
+  - camera.giardino
+  - camera.domodossola
+  - camera.tokyo
+  - camera.nyc__skyline
+  - camera.nyc__times_square
+  - camera.mergozzo
+  
+automazioniluce:
+  name: Automazioni Luce
+  view: false
+  entities:
+  - automation.accendi_corridoio_al_tramonto
+  - automation.accendi_luce_stanza_con_pc
+  - automation.accendi_portone_al_tramonto
+  - automation.accendi_quando_torniamo_a_casa
+  - automation.away_mode_luci
+  - automation.luce_sotto_pc_off
+  - automation.luce_sotto_pc_on
+  - automation.spegni_fuori_1am
+automazionimi:
+  name: Automazioni Mi
+  view: false
+  entities:
+  - automation.luce_sotto_pc_off
+  - automation.pulsante_mi_sala_single_sala
+  - automation.pulsante_mi_sala_hold_playpause
+  - automation.pulsante_mi_sala_double_corridoio
+  - automation.pulsante_mi_camera_single_hue
+  - automation.pulsante_mi_camera_double_yee
+  - automation.luce_sotto_pc_on
+  - automation.spegni_fuori_1am
+  - automation.pulsante_mi_camera_double_yee
+  - automation.pulsante_mi_camera_single_hue
+  - automation.welcome_home_ali
+  - automation.toggle_corridoio
+automazioni:
+  name: Automazioni
+  view: false
+  entities:
+  - automation.notifica_update
+  - automation.spegni_tutto_on_hold
+  - automation.turtlemode_off_mentre_non_gioco
+  - automation.turtlemode_on_mentre_gioco
+config:
+  name: Config
+  view: true
+  icon: mdi:settings
+  entities:
+  - group.weblinks
+  - group.script
+  - group.automazioni
+  - group.automazioniluce
+  - group.automazionimi
+pihole:
+  name: Statistiche Pi-Hole
+  view: false
+  entities:
+  - sensor.pihole_ads_percentage_blocked_today
+  - sensor.pihole_dns_queries_today
+  - sensor.pihole_ads_percentage_today
+  - sensor.pihole_ads_blocked_today
+FN Lifetime:
+  - sensor.fortnite_lifetime_matches_played
+  - sensor.fortnite_lifetime_wins
+  - sensor.fortnite_lifetime_kills
+  - sensor.fortnite_lifetime_kd
+
+FN Solo:
+  - sensor.fortnite_lifetime_solo_top1
+  - sensor.fortnite_lifetime_solo_kd
+  - sensor.fortnite_lifetime_solo_kills
+  - sensor.fortnite_lifetime_solo_matches
+  - sensor.fortnite_lifetime_solo_kpg
+
+FN Duo:
+  - sensor.fortnite_lifetime_duo_top1
+  - sensor.fortnite_lifetime_duo_kd
+  - sensor.fortnite_lifetime_duo_kills
+  - sensor.fortnite_lifetime_duo_matches
+  - sensor.fortnite_lifetime_duo_kpg
+
+FN Squad:
+  - sensor.fortnite_lifetime_squad_top1
+  - sensor.fortnite_lifetime_squad_kd
+  - sensor.fortnite_lifetime_squad_kills
+  - sensor.fortnite_lifetime_squad_matches
+  - sensor.fortnite_lifetime_squad_kpg
+lenovop2:
+  name: LenovoP2
+  view: false
+  entities:
+  - sensor.gps_accuracy
+  - sensor.battery_charging
+  - sensor.battery
+  - sensor.screen_on
+  - sensor.wifi_name
+#dietpi:
+#  name: System
+#  view: false
+#  entities:
+#  - sensor.cpu_temperature
+#  - sensor.netdata_ram_buffers
+#  - sensor.netdata_ram_cached
+#  - sensor.netdata_ram_free
+#  - sensor.netdata_ram_used
+#  - sensor.netdata_system_load
+#  - sensor.disk_use_root
+#  - sensor.disk_use_mntusb_1
+#  - sensor.last_boot
+#torrent:
+#  name: Torrent
+#  view: false
+#  entities:
+#  - sensor.transmission_down_speed
+#  - sensor.transmission_status
+#  - sensor.transmission_up_speed
+#  - switch.transmission_turtle_mode

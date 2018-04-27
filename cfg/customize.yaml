@@ -1,0 +1,120 @@
+sensor.temperature_158d0001e4d639:
+  friendly_name: Temp. Ext
+sensor.speedtest_download:
+  icon: mdi:download
+  friendly_name: Download
+sensor.speedtest_upload:
+  icon: mdi:upload
+  friendly_name: Upload
+sensor.speedtest_ping:
+  icon: mdi:timer
+  friendly_name: Ping
+sun.sun:
+  icon: mdi:weather-sunny
+sensor.dark_sky_apparent_temperature:
+  friendly_name: Percepita
+sensor.dark_sky_temperature:
+  friendly_name: Temp.
+sensor.dark_sky_hourly_summary:
+  friendly_name: Ora
+sensor.dark_sky_daily_high_temperature:
+  friendly_name: Max
+sensor.dark_sky_daily_low_temperature:
+  friendly_name: Min
+sensor.dark_sky_wind_speed:
+  friendly_name: Vento
+sensor.dark_sky_icon:
+  friendly_name: Stato
+sensor.dark_sky_humidity:
+  friendly_name: Umidità
+sensor.netdata_processes_blocked:
+  friendly_name: Processi Bloccati
+sensor.netdata_processes_running:
+  friendly_name: Processi attivi
+sensor.netdata_ram_buffers:
+  friendly_name: RAM Buffered
+sensor.netdata_ram_cached:
+  friendly_name: RAM Cached
+sensor.netdata_ram_free:
+  friendly_name: RAM Libera
+sensor.netdata_ram_used:
+  friendly_name: RAM Usata
+sensor.netdata_swap_free:
+  friendly_name: SWAP Libera
+sensor.netdata_swap_used:
+  friendly_name: SWAP Usata
+sensor.netdata_system_load:
+  friendly_name: Carico
+light.yeelight_white_f0b42995441b:
+  friendly_name: Portone
+light.stanza_nerding_2:
+  hidden: true
+script.ha_restart:
+  icon: mdi:restart
+script.speedy:
+  icon: mdi:speedometer
+automation.accendi_fuori_al_tramonto:
+  icon: mdi:weather-sunset-down
+automation.accendi_quando_torniamo_a_casa:
+  icon: mdi:home-map-marker
+automation.away_mode_luci:
+  icon: mdi:account-multiple-minus
+automation.spegni_fuori_1am:
+  icon: mdi:weather-night
+automation.accendi_corridoio_al_tramonto:
+  icon: mdi:weather-sunset
+automation.accendi_luce_stanza_con_pc:
+  icon: mdi:network
+script.upgrade:
+  icon: mdi:update
+sensor.transmission_down_speed:
+  icon: mdi:download
+sensor.transmission_up_speed:
+  icon: mdi:upload
+sensor.transmission_status:
+  icon: mdi:cards-variant
+switch.transmission_turtle_mode:
+  icon: mdi:disk-alert
+automation.turtlemode_on_mentre_gioco:
+  icon: mdi:mouse
+light.yeelight_rgb_286c07aeaf55:
+  friendly_name: Stanza Nerding Muro
+sensor.temperature_158d0001573a29:
+  friendly_name: Temp
+sensor.humidity_158d0001573a29:
+  friendly_name: Umidità
+light.gateway_light_286c07891570:
+  friendly_name: Gateway
+binary_sensor.switch_158d00014d0c15:
+  friendly_name: Switch Mi Corridoio
+binary_sensor.motion_sensor_158d000154a59b:
+  friendly_name: Sens. Presenza
+climate.termostato:
+  friendly_name: Termostato Netatmo
+automation.spegni_tutto_on_hold:
+  icon: mdi:adjust
+switch.plug_158d0001530646:
+  friendly_name: Luci di Natale
+sensor.illumination_286c07891570:
+  friendly_name: Sensore di luce
+binary_sensor.switch_158d000155d1d9:
+  friendly_name: Switch Mi Camera
+binary_sensor.switch_158d000128af3f:
+  friendly_name: Switch Mi Sala
+sensor.download_speed_mean:
+  friendly_name: Speedtest Download Average
+  icon: mdi:speedometer
+sensor.upload_speed_mean:
+  friendly_name: Spedtest Upload Average
+  icon: mdi:speedometer
+sensor.ping_time_mean:
+  friendly_name: Speedtest Ping Average
+  icon: mdi:clock-fast
+sensor.wan_traffic_in_mean:
+  friendly_name: WAN Download Average
+  icon: mdi:download
+sensor.wan_traffic_out_mean:
+  friendly_name: WAN Upload Average
+  icon: mdi:upload
+media_player.samsung_tv_remote:
+  friendly_name: Tv Sala

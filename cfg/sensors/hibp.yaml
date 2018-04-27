@@ -1,0 +1,4 @@
+- platform: haveibeenpwned
+  email: 
+    - !secret hibp1
+    - !secret hibp2

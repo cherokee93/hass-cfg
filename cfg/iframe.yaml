@@ -1,0 +1,8 @@
+netatmo:
+  title: 'MyNetatmo'
+  icon: 'mdi:nest-thermostat'
+  url: 'https://my.netatmo.com/app/therm'
+pihole:
+   title: PiHole
+   icon: mdi:close-network
+   url: !secret piholeip

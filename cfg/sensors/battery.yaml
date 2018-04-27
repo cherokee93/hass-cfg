@@ -1,0 +1,18 @@
+  - platform: template
+    sensors:
+      low_batteries:
+        friendly_name: Low batteries
+        value_template: >-
+          {%- for state in states if state.attributes.battery_level or state.attributes.battery -%}
+            {%- set battery = state.attributes.battery_level or state.attributes.battery -%}
+            {%- if battery == 'High' -%}
+              {%- set battery = 100 -%}
+            {%- endif -%}
+            {%- if battery | int < 30 -%}
+              {{state.attributes.friendly_name}}
+            {%- endif -%}
+          {%- endfor -%}
+      battery_status:
+        friendly_name: Batteries
+        icon_template: '{% if states.sensor.low_batteries.state %}mdi:battery-10{% else %}mdi:battery{% endif %}'
+        value_template: '{% if states.sensor.low_batteries.state %}{{states.sensor.low_batteries.state}}{% else %}OK{% endif %}'

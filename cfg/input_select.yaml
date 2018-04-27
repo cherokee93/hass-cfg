@@ -1,0 +1,36 @@
+  pcoptions:
+    name: DeskPC Power Options
+    options:
+      - Restart
+      - Shutdown
+      - Select
+      - Sleep
+      - Hibernate
+    initial: Select
+    icon: mdi:desktop-tower
+  chromecast_radio:
+    name: 'Seleziona Speakers:'
+    options:
+      - Sala
+      - Corridoio
+      - Ovunque
+    initial: Corridoio
+    icon: mdi:speaker-wireless
+  radio_station:
+    name: 'Seleziona Stazione Radio:'
+    options:
+      - Deejay
+      - Q-Music
+      - 3FM
+      - Veronica
+      - Sky Radio
+      - Arrow Classic Rock
+      - Classic FM
+      - BNR Nieuwsradio
+      - SLAM! Hardstyle
+      - Sleep Radio
+      - Ambient Sleeping Pill
+      - Radio Art - Sleep
+      - Ambi Nature Radio
+      - Calm Radio - Sleep
+      - Dinamo.FM Sleep

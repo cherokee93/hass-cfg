@@ -1,0 +1,19 @@
+- platform: generic
+  name: Domodossola
+  still_image_url: http://www2.nimbus.it/stazioni-meteo/StazMeteoDomoRosmini/attuale.jpg
+- platform: generic
+  name: Ali
+  still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{ states.device_tracker.lenovop2_lenovop2.attributes.latitude }},{{ states.device_tracker.lenovop2_lenovop2.attributes.longitude }}&zoom=13&size=500x500&maptype=roadmap&markers=color:orange%7Clabel:Ali%7C{{ states.device_tracker.lenovop2_lenovop2.attributes.latitude }},{{ states.device_tracker.lenovop2_lenovop2.attributes.longitude }}
+  limit_refetch_to_url_change: true
+- platform: ffmpeg
+  name: NYC - Times Square
+  input: http://videos3.earthcam.com/fecnetwork/4717.flv/playlist.m3u8
+- platform: ffmpeg
+  name: NYC - Skyline
+  input: http://videos3.earthcam.com/fecnetwork/libertyHD1.flv/playlist.m3u8
+- platform: ffmpeg
+  name: Tokyo
+  input: http://videos3.earthcam.com/fecnetwork/tokyo1.flv/playlist.m3u8
+- platform: generic
+  name: Mergozzo
+  still_image_url: http://webcam.neveazzurra.it/mergozzo.jpg

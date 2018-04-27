@@ -1,0 +1,3 @@
+- platform: blockchain
+  addresses:
+    - !secret bchain

@@ -1,0 +1,144 @@
+  - platform: rest
+    name: "Fortnite Stats"
+    resource: !secret trn_resource
+    headers:
+      TRN-Api-Key: !secret trn_api_key
+    method: 'GET'
+    value_template: "{{ value_json.epicUserHandle }}"
+    json_attributes:
+      - stats
+      - lifeTimeStats
+      - recentMatches
+
+  - platform: template
+    sensors:
+      fortnite_lifetime_matches_played:
+        friendly_name: "Lifetime Matches Played"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.lifeTimeStats[7].value }}"
+
+  - platform: template
+    sensors:
+      fortnite_lifetime_wins:
+        friendly_name: "Lifetime Wins"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.lifeTimeStats[8].value }}"
+
+  - platform: template
+    sensors:
+      fortnite_lifetime_kills:
+        friendly_name: "Lifetime Kills"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.lifeTimeStats[10].value }}"
+
+  - platform: template
+    sensors:
+      fortnite_lifetime_kd:
+        friendly_name: "Lifetime KD"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.lifeTimeStats[11].value }}"
+
+  - platform: template
+    sensors:
+      fortnite_lifetime_solo_top1:
+        friendly_name: "Lifetime Solo Top 1"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.stats.p2.top1.displayValue }}"
+
+  - platform: template
+    sensors:
+      fortnite_lifetime_solo_kd:
+        friendly_name: "Lifetime Solo KD"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.stats.p2.kd.displayValue }}"
+
+  - platform: template
+    sensors:
+      fortnite_lifetime_solo_matches:
+        friendly_name: "Lifetime Solo Matches"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.stats.p2.matches.displayValue }}"
+
+  - platform: template
+    sensors:
+      fortnite_lifetime_solo_kills:
+        friendly_name: "Lifetime Solo Kills"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.stats.p2.kills.displayValue }}"
+
+  - platform: template
+    sensors:
+      fortnite_lifetime_solo_kpg:
+        friendly_name: "Lifetime Solo KPG"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.stats.p2.kpg.displayValue }}"
+
+  - platform: template
+    sensors:
+      fortnite_lifetime_duo_top1:
+        friendly_name: "Lifetime Duo Top 1"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.stats.p10.top1.displayValue }}"
+     
+  - platform: template
+    sensors:
+      fortnite_lifetime_duo_kd:
+        friendly_name: "Lifetime Duo KD"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.stats.p10.kd.displayValue }}"
+
+  - platform: template
+    sensors:
+      fortnite_lifetime_duo_matches:
+        friendly_name: "Lifetime Duo Matches"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.stats.p10.matches.displayValue }}"
+
+  - platform: template
+    sensors:
+      fortnite_lifetime_duo_kills:
+        friendly_name: "Lifetime Duo Kills"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.stats.p10.kills.displayValue }}"
+
+  - platform: template
+    sensors:
+      fortnite_lifetime_duo_kpg:
+        friendly_name: "Lifetime Duo KPG"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.stats.p10.kpg.displayValue }}"
+
+  - platform: template
+    sensors:
+      fortnite_lifetime_squad_top1:
+        friendly_name: "Lifetime Squad Top 1"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.stats.p9.top1.displayValue }}"
+
+  - platform: template
+    sensors:
+      fortnite_lifetime_squad_kd:
+        friendly_name: "Lifetime Squad KD"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.stats.p9.kd.displayValue }}"
+
+  - platform: template
+    sensors:
+      fortnite_lifetime_squad_matches:
+        friendly_name: "Lifetime Squad Matches"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.stats.p9.matches.displayValue }}"
+
+  - platform: template
+    sensors:
+      fortnite_lifetime_squad_kills:
+        friendly_name: "Lifetime Squad Kills"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.stats.p9.kills.displayValue }}"
+
+  - platform: template
+    sensors:
+      fortnite_lifetime_squad_kpg:
+        friendly_name: "Lifetime Squad KPG"
+        entity_id: sensor.fortnite_stats
+        value_template: "{{ states.sensor.fortnite_stats.attributes.stats.p9.kpg.displayValue }}"
