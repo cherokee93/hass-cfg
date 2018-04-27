@@ -6,3 +6,4 @@ pihole:
    title: PiHole
    icon: mdi:close-network
    url: !secret piholeip
+#test
