@@ -17,8 +17,8 @@ radio538:
             {% elif is_state("input_select.chromecast_radio", "Ovunque") %} media_player.home_group
             {% endif %}
            media_content_id: >
-            {% if is_state("input_select.radio_station", "Deejay") %} http://radiodeejay-lh.akamaihd.net/i/RadioDeejay_Live_1@189857/index_96_a-b.m3u8?sd=10&rebase=on
-            {% elif is_state("input_select.radio_station", "Q-Music") %} http://icecast-qmusic.cdp.triple-it.nl/Qmusic_nl_live_96.mp3
+            {% if is_state("input_select.radio_station", "Deejay") %} http://video.deejay.it/embed/copertina/diretta-radio-deejay/970/963
+            {% elif is_state("input_select.radio_station", "Birikina") %} http://wma01.fluidstream.net/birikina
             {% elif is_state("input_select.radio_station", "3FM") %} http://icecast.omroep.nl/3fm-bb-mp3
             {% elif is_state("input_select.radio_station", "100% NL") %} http://stream.100p.nl/100pctnl.mp3
             {% elif is_state("input_select.radio_station", "Veronica") %} http://8543.live.streamtheworld.com/VERONICACMP3

@@ -13,7 +13,7 @@
     state: 'on'
   action:
     service: homeassistant.turn_on
-    entity_id: light.stanza_nerding
+    entity_id: light.stanza_nerding_2
 - id: noventaitres
   alias: Auto Stanza Nerding 2
   trigger:
@@ -24,4 +24,4 @@
       minutes: 10
   action:
     service: homeassistant.turn_off
-    entity_id: light.stanza_nerding
+    entity_id: light.stanza_nerding_2

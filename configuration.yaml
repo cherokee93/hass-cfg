@@ -16,6 +16,7 @@ frontend:
   javascript_version: latest
   themes: !include_dir_merge_named cfg/themes
 recorder:
+  db_url: sqlite:///mnt/ramdisk/hass-db
   purge_interval: 2
   purge_keep_days: 5
   exclude:
