@@ -2,3 +2,7 @@
   base_url: !secret baseurl
   ssl_certificate: !secret sslcert
   ssl_key: !secret sslkey
+  trusted_networks:
+    - 127.0.0.1
+    - ::1
+    - 192.168.0.0/24

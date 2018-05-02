@@ -95,7 +95,6 @@ dispsensori:
   - group.pioggia
   - sensor.temperature_158d0001573a29
   - sensor.humidity_158d0001573a29
-  - sensor.illumination_286c07891570
 internet:
   name: Internet
   view: false
@@ -169,6 +168,8 @@ xiaomis:
   - binary_sensor.motion_sensor_158d000154a59b
   - sensor.temperature_158d0001573a29
   - sensor.humidity_158d0001573a29
+  - sensor.temperature_158d0001e4d639
+  - sensor.humidity_158d0001e4d639
   - sensor.illumination_286c07891570
 camere:
   name: Webcam

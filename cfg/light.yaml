@@ -4,5 +4,5 @@
       name: Stanza Nerding Muro
     192.168.1.243:
       name: Portone
-    192.168.1.242:
-      name: Camera
+    #192.168.1.242:
+    #  name: Camera

@@ -1,5 +1,3 @@
-sensor.temperature_158d0001e4d639:
-  friendly_name: Temp. Ext
 sensor.speedtest_download:
   icon: mdi:download
   friendly_name: Download
@@ -118,3 +116,7 @@ sensor.wan_traffic_out_mean:
   icon: mdi:upload
 media_player.samsung_tv_remote:
   friendly_name: Tv Sala
+sensor.temperature_158d0001e4d639:
+  friendly_name: Temp Esterna
+sensor.humidity_158d0001e4d639:
+  friendly_name: Umidità Esterna
