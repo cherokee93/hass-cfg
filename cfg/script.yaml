@@ -43,15 +43,15 @@ speedy:
   alias: Aggiorna Speedtest
   sequence:
   - service: sensor.update_speedtest
-testaudio:
-  alias: Temperatura test
+testtemp:
+  alias: Temperatura Test Home
   sequence:
   - service: tts.google_say
     entity_id: media_player.cameretta_speaker
     data_template:
-      message: La temperatura in cameretta, è di {{ states.sensor.temperature.state }} . 
+      message: La temperatura in cameretta, è di {{ states.sensor.temperature_158d0001573a29.state_with_unit }} . Invece fuori {{ states.sensor.temperature_158d0001e4d639.state_with_unit }}.  
 testspeed:
-  alias: Speed Test HomeM
+  alias: Speed Test Home
   sequence:
   - service: tts.google_say
     entity_id: media_player.cameretta_speaker
@@ -63,21 +63,8 @@ testspeed:
     entity_id: media_player.cameretta_speaker
     data_template:
       message: Ho fatto uno speedtest. Scarichi a {{ states.sensor.speedtest_download.state  | round() }}, aploadi a {{ states.sensor.speedtest_upload.state  | round() }} e pinghi {{ states.sensor.speedtest_ping.state  | round() }} . Eolone merdone!
-# Dim lights down over 5 minutes
-# Turn on bedroom light
-# Set house state
-buonanotte:
-  alias: Sequenza buonanotte
+update_config:
+  alias: Pull Github
   sequence:
-    # Interruttori & pc off
-    - service: homeassistant.turn_off
-      entity_id: switch.plug_158d0001530646, switch.deskpc
-    # Spegni con transizione 3min
-    - service: light.turn_off
-      data:
-        entity_id: light.corridoio,light.gateway_light_286c07891570,light.living_room,light.sala,light.stanza_nerding,light.stanza_nerding_muro
-        transition: 10
-    # Spegni instant
-    - service: light.turn_off
-      data:
-        entity_id: light.portone, light.camera
+  - service: shell_command.get_latest_config
+  - service: homeassistant.restart

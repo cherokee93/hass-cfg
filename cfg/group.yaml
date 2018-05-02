@@ -113,6 +113,9 @@ script:
   - script.upgrade
   - script.speedy
   - script.ha_restart
+  - script.testspeed
+  - script.testtemp
+  - script.update_config
 meteo:
   name: Meteo
   view: false
