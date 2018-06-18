@@ -17,3 +17,6 @@
 - platform: generic
   name: Mergozzo
   still_image_url: http://webcam.neveazzurra.it/mergozzo.jpg
+- platform: mjpeg
+  name: Officina
+  mjpeg_url: !secret ipofficina

@@ -25,6 +25,7 @@ recorder:
       - weblink
       - updater
       - script
+      - group
     entities:
       - sun.sun
       - sensor.fortnite_stats

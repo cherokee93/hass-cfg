@@ -186,6 +186,7 @@ camere:
   - camera.nyc__skyline
   - camera.nyc__times_square
   - camera.mergozzo
+  - camera.officina
   
 automazioniluce:
   name: Automazioni Luce

@@ -45,8 +45,6 @@ sensor.netdata_system_load:
   friendly_name: Carico
 light.yeelight_white_f0b42995441b:
   friendly_name: Portone
-light.stanza_nerding_2:
-  hidden: true
 script.ha_restart:
   icon: mdi:restart
 script.speedy:
