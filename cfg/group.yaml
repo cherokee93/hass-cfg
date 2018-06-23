@@ -16,12 +16,12 @@ mediapl:
   view: true
   entities:
   - group.radiocc
-  - media_player.sala
-  - media_player.bedroom_tv
+  #- media_player.sala
+  #- media_player.bedroom_tv
   - media_player.samsung_tv_remote
-  - media_player.cameretta_speaker
-  - media_player.living_room_tv_2
-  - media_player.tv_sala
+  - media_player.alfa
+  - media_player.beta
+  #- media_player.living_room_tv_2
   #- media_player.fire_stick
 radiocc:
   name: Radio

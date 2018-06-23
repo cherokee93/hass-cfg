@@ -1,4 +1,9 @@
-- platform: cast
-  host: 192.168.1.246
-- platform: cast
-  host: 192.168.1.254
+# - platform: cast
+#  host: 192.168.1.246
+  # Chromecast?
+#- platform: cast
+#  host: 192.168.1.254
+  #48:D6:D5:F4:BA:E3 Corridoio aka Alfa
+#- platform: cast
+#  host: 192.168.1.184
+  #48:D6:D5:65:6D:C5 Sala aka Beta

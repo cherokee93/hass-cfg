@@ -3,22 +3,23 @@ radio538:
     sequence:
       - service: media_player.volume_set
         data:
-          entity_id: media_player.cameretta_speaker
+          entity_id: media_player.alfa
           volume_level: '0.35'
       -  service: media_player.volume_set
          data:
-           entity_id: media_player.sala
-           volume_level: '0.30'
+           entity_id: media_player.beta
+           volume_level: '0.35'
       -  service: media_player.play_media
          data_template:
            entity_id: >
-            {% if is_state("input_select.chromecast_radio", "Sala") %} media_player.sala
-            {% elif is_state("input_select.chromecast_radio", "Corridoio") %} media_player.cameretta_speaker
-            {% elif is_state("input_select.chromecast_radio", "Ovunque") %} media_player.home_group
+            {% if is_state("input_select.chromecast_radio", "Alfa") %} media_player.alfa
+            {% elif is_state("input_select.chromecast_radio", "Corridoio") %} media_player.beta
+            {% elif is_state("input_select.chromecast_radio", "Ovunque") %} media_player.gamma
             {% endif %}
            media_content_id: >
             {% if is_state("input_select.radio_station", "Deejay") %} http://video.deejay.it/embed/copertina/diretta-radio-deejay/970/963
             {% elif is_state("input_select.radio_station", "Birikina") %} http://wma01.fluidstream.net/birikina
+            {% elif is_state("input_select.radio_station", "Lofi HipHop") %} http://hyades.shoutca.st:8043/stream
             {% endif %}
            media_content_type: 'application/x-mpegurl' 
 ha_restart:
@@ -33,20 +34,20 @@ testtemp:
   alias: Temperatura Test Home
   sequence:
   - service: tts.google_say
-    entity_id: media_player.cameretta_speaker
+    entity_id: media_player.alfa
     data_template:
       message: La temperatura in cameretta, è di {{ states.sensor.temperature_158d0001573a29.state_with_unit }} . Invece fuori {{ states.sensor.temperature_158d0001e4d639.state_with_unit }}.  
 testspeed:
   alias: Speed Test Home
   sequence:
   - service: tts.google_say
-    entity_id: media_player.cameretta_speaker
+    entity_id: media_player.alfa
     data_template:
       message: Ok. Dammi trenta secondi che aggiorno lo speedtest!
   - service: sensor.update_speedtest
   - delay: '00:00:35'
   - service: tts.google_say
-    entity_id: media_player.cameretta_speaker
+    entity_id: media_player.alfa
     data_template:
       message: Ho fatto uno speedtest. Download a {{ states.sensor.speedtest_download.state  | round() }}, Upload a {{ states.sensor.speedtest_upload.state  | round() }} e Ping {{ states.sensor.speedtest_ping.state  | round() }} . A prescindere, direi EOLO MERDA!
 update_config:

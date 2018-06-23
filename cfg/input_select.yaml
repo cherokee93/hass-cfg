@@ -11,13 +11,15 @@
   chromecast_radio:
     name: 'Seleziona Speakers:'
     options:
-      - Sala
-      - Corridoio
+      - Alfa
+      - Beta
       - Ovunque
-    initial: Corridoio
+    initial: Alfa
     icon: mdi:speaker-wireless
   radio_station:
     name: 'Seleziona Stazione Radio:'
     options:
       - Deejay
       - Birikina
+      - Lofi HipHop
+    initial: Lofi HipHop
