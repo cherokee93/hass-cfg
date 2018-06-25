@@ -9,20 +9,17 @@ default_view:
   - device_tracker.lenovop2_lenovop2
   - climate.termostato
   - sensor.bitcoin_balance
-  - sensor.bitcoin
 mediapl:
   name: Media
   icon: mdi:play-network
   view: true
   entities:
   - group.radiocc
-  #- media_player.sala
-  #- media_player.bedroom_tv
-  - media_player.samsung_tv_remote
   - media_player.alfa
   - media_player.beta
-  #- media_player.living_room_tv_2
-  #- media_player.fire_stick
+  - media_player.gamma
+  - media_player.living_room_tv
+  - media_player.samsung_tv_remote
 radiocc:
   name: Radio
   view: no
@@ -85,16 +82,21 @@ dispsensori:
   entities:
   - group.xiaomis
   - group.dietpi
-  - group.torrent
   - group.pihole
-  - group.devices
   - group.lenovop2
+  - group.hibp
   - camera.ali
   - group.meteo
   - group.ariacielo
   - group.pioggia
   - sensor.temperature_158d0001573a29
   - sensor.humidity_158d0001573a29
+hibp:
+  name: HIBP
+  view: false
+  entities:
+  - sensor.breaches_alexsk893gmailcom
+  - sensor.breaches_alessandrocaldelariit
 internet:
   name: Internet
   view: false
@@ -103,8 +105,6 @@ internet:
   - sensor.speedtest_download
   - sensor.speedtest_upload
   - sensor.speedtest_ping
-  - sensor.wan_traffic_in_mean
-  - sensor.wan_traffic_out_mean
 script:
   name: Script
   control: hidden
@@ -147,7 +147,6 @@ weblinks:
   name: Links
   view: false
   entities:
-  - weblink.webmin
   - weblink.pihole
   - weblink.pannello_asus
 luci:
@@ -155,11 +154,10 @@ luci:
   view: false
   entities:
   - light.portone
-  - light.stanza_nerding_2
+  - light.stanza_nerding
+  - light.stanza_nerding_muro
   - light.sala
   - light.corridoio
-  - light.camera
-  - light.stanza_nerding_muro
   - light.gateway_light_286c07891570
 xiaomis:
   name: Sensori Mi
@@ -168,6 +166,7 @@ xiaomis:
   - binary_sensor.switch_158d00014d0c15
   - binary_sensor.switch_158d000155d1d9
   - binary_sensor.switch_158d000128af3f
+  - binary_sensor.cube_158d0001026386
   - binary_sensor.motion_sensor_158d000154a59b
   - sensor.temperature_158d0001573a29
   - sensor.humidity_158d0001573a29
@@ -179,8 +178,6 @@ camere:
   icon: mdi:video
   view: true
   entities:
-  - camera.officina
-  - camera.giardino
   - camera.domodossola
   - camera.tokyo
   - camera.nyc__skyline
@@ -194,44 +191,26 @@ automazioniluce:
   entities:
   - automation.accendi_corridoio_al_tramonto
   - automation.accendi_luce_stanza_con_pc
-  - automation.accendi_portone_al_tramonto
   - automation.accendi_quando_torniamo_a_casa
   - automation.away_mode_luci
-  - automation.luce_sotto_pc_off
-  - automation.luce_sotto_pc_on
   - automation.spegni_fuori_1am
 automazionimi:
   name: Automazioni Mi
   view: false
   entities:
-  - automation.luce_sotto_pc_off
-  - automation.pulsante_mi_sala_single_sala
-  - automation.pulsante_mi_sala_hold_playpause
+  - automation.pulsante_mi_nerding_double_yee
+  - automation.pulsante_mi_nerding_hold_spegni_tutto
+  - automation.pulsante_mi_nerding_single_hue
   - automation.pulsante_mi_sala_double_corridoio
-  - automation.pulsante_mi_camera_single_hue
-  - automation.pulsante_mi_camera_double_yee
-  - automation.luce_sotto_pc_on
-  - automation.spegni_fuori_1am
-  - automation.pulsante_mi_camera_double_yee
-  - automation.pulsante_mi_camera_single_hue
-  - automation.welcome_home_ali
+  - automation.pulsante_mi_sala_single_sala
   - automation.toggle_corridoio
-automazioni:
-  name: Automazioni
-  view: false
-  entities:
-  - automation.notifica_update
   - automation.spegni_tutto_on_hold
-  - automation.turtlemode_off_mentre_non_gioco
-  - automation.turtlemode_on_mentre_gioco
 config:
   name: Config
   view: true
   icon: mdi:settings
   entities:
   - group.weblinks
-  - group.script
-  - group.automazioni
   - group.automazioniluce
   - group.automazionimi
 pihole:
@@ -277,19 +256,13 @@ lenovop2:
   - sensor.battery
   - sensor.screen_on
   - sensor.wifi_name
-#dietpi:
-#  name: System
-#  view: false
-#  entities:
-#  - sensor.cpu_temperature
-#  - sensor.netdata_ram_buffers
-#  - sensor.netdata_ram_cached
-#  - sensor.netdata_ram_free
-#  - sensor.netdata_ram_used
-#  - sensor.netdata_system_load
-#  - sensor.disk_use_root
-#  - sensor.disk_use_mntusb_1
-#  - sensor.last_boot
+dietpi:
+  name: System
+  view: false
+  entities:
+  - sensor.cpu_temperature
+  - sensor.disk_use_percent_root
+  - sensor.last_boot
 #torrent:
 #  name: Torrent
 #  view: false

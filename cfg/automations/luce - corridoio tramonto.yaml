@@ -9,4 +9,4 @@
     state: home
   action:
     service: scene.turn_on
-    entity_id: scene.welcomecorridoio
+    entity_id: scene.welcomehome

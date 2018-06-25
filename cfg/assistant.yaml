@@ -2,10 +2,50 @@ project_id: !secret gasspid
 client_id: !secret gasscid
 access_token: !secret gasstok
 api_key: !secret gassapi
-expose_by_default: true
 exposed_domains:
   - switch
   - light
-  - script
   - scene
-  - device_tracker
+  - media_player
+expose_by_default: false
+entity_config:
+  light.portone:
+    name: Portone
+    aliases:
+      - esterna
+      - fuori
+    expose: true
+  light.sala:
+    name: Sala
+    aliases:
+      - lampada sala
+      - abat jour sala
+    expose: true
+  light.gateway_light_286c07891570:
+    name: Gateway
+    aliases:
+      - sotto computer
+      - piedi computer
+    expose: true
+  light.corridoio:
+    name: Corridoio
+    expose: true
+  light.stanza_nerding:
+    name: Lampada Cameretta
+    aliases:
+      - lampada nerding
+      - luce cameretta
+    expose: true
+  light.stanza_nerding_muro:
+    name: Cameretta Soffitto
+    expose: true
+    aliases:
+      - nerding muro
+      - soffitto cameretta
+  media_player.samsung_tv_remote:
+    name: TV Samsung
+    expose: true
+    aliases:
+      - televisore
+      - tv sala
+      - tele

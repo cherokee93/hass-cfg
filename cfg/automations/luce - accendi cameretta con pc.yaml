@@ -1,6 +1,5 @@
 - id: sei
   alias: Accendi luce stanza con pc
-  initial_state: 'off'
   trigger:
   - entity_id: switch.deskpc
     from: 'off'
@@ -11,5 +10,5 @@
     entity_id: sun.sun
     state: below_horizon
   action:
-  - entity_id: light.stanza_nerding_2
+  - entity_id: light.stanza_nerding
     service: light.turn_on

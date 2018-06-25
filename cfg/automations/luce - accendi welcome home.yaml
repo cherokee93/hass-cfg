@@ -10,5 +10,5 @@
     entity_id: sun.sun
     state: below_horizon
   action:
-    service: light.turn_on
-    entity_id: light.portone, light.corridoio
+    service: scene.turn_on
+    entity_id: scene.welcomehome
