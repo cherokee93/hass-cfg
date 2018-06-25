@@ -118,3 +118,5 @@ sensor.temperature_158d0001e4d639:
   friendly_name: Temp Esterna
 sensor.humidity_158d0001e4d639:
   friendly_name: Umidità Esterna
+binary_sensor.cube_158d0001026386:
+  friendly_name: Cubo
