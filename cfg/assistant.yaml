@@ -16,9 +16,8 @@ entity_config:
       - fuori
     expose: true
   light.sala:
-    name: Sala
+    name: Lampada Sala
     aliases:
-      - lampada sala
       - abat jour sala
     expose: true
   light.gateway_light_286c07891570:
@@ -36,12 +35,6 @@ entity_config:
       - lampada nerding
       - luce cameretta
     expose: true
-  light.stanza_nerding_muro:
-    name: Cameretta Soffitto
-    expose: true
-    aliases:
-      - nerding muro
-      - soffitto cameretta
   media_player.samsung_tv_remote:
     name: TV Samsung
     expose: true
@@ -49,3 +42,26 @@ entity_config:
       - televisore
       - tv sala
       - tele
+  light.stanza_nerding_muro:
+    name: Cameretta Soffitto
+    expose: true
+    aliases:
+      - nerding muro
+      - soffitto cameretta
+  scene.buonanotte:
+    name: Buonanotte
+    expose: true
+  switch.deskpc:
+    name: Computer
+    expose: true
+    aliases:
+      - pc
+      - computer di Ali
+      - Deskpc
+  switch.plug_158d0001530646:
+    name: Presa
+    expose: true
+    aliases:
+      - presa smart
+      - luci di natale
+      - presa xiaomi
